@@ -33,5 +33,5 @@
 
 ## :pencil: 개인 공부 현황
 
-### 1 주차 (19.09.16 ~ 19.09.23)
-1. CSS 플렉스속성 
+### 1주차(19.09.16 ~ 19.09.23)
+- [kimchunyong](https://github.com/kimchunyong/Learning-JavaScript-Data-Structures-and-Algorithms/blob/kimchunyong/chapter_01/array.js)
