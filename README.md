@@ -35,3 +35,4 @@
 ## :pencil: 개인 공부 현황
 
 ### 1주차(19.09.16 ~ 19.09.23)
+- [siwoobaek](https://github.com/siwoohoo/Learning-JavaScript-Data-Structures-and-Algorithms/blob/siwoobaek/chapter_01/chapter_01_baeksiwoo.md)
