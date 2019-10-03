@@ -42,12 +42,19 @@
 - [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_01/chapter_01.md)
 - [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_02/chapter_02.md)
 - [kimchunyong](https://github.com/kimchunyong/Learning-JavaScript-Data-Structures-and-Algorithms/blob/kimchunyong/chapter_01/array.js)
-<<<<<<< HEAD
--[yoon-hee1](https://github.com/yoon-hee1/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter_1yooonhee/chapter_1.md)
-=======
->>>>>>> e1ab808551299ce265e82594480fb9138fd6a586
+- [yoon-hee1](https://github.com/yoon-hee1/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter_1yoonhee/chapter01/chapter_1.md)
+- [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch2/ch2.md)
+
 
 ### 2주차(19.09.24 ~ 19.09.29) 스택
 - [xiah](https://github.com/noel88/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter3_xiah/chapter3/Stack.md)
 - [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_03/chapter_03.md)
+- [kimchunyong](https://github.com/kimchunyong/Learning-JavaScript-Data-Structures-and-Algorithms/tree/kimchunyong/chapter_02)
+- [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch3/ch3.md)
+- [yoonhee1](https://github.com/yoon-hee1/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter_2yoonhee/chapter02/chapter_2.md)
 
+### 3주차(19.09.30 ~ 19.10.06) 큐
+
+- [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_04/chapter_04.md)
+- [xiah](https://github.com/noel88/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter4_xiah/chapter4/Queue.md)
+- [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch4/ch4.md)
