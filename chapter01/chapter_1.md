@@ -66,6 +66,7 @@ ex)averageTemp [0] [4] = 81;
 contact : 각 배열을 루프로 반복해서 원소를 하나하나 결과 배열에 담음
     ex)var Numbers = negativeNumbers.contact (zero. positiveNumbers);
     -> zero가 negative에 병합, 그 뒤에 positive에 병합
+    
 every : 함수의 결과 값이 false가 될때까지 배열의 모든 원소를 반복
 every : 함수의 결과 값이 true가 될때까지 배열의 모든 원소를 반복
 isEven : false를 반환
