@@ -48,7 +48,7 @@ console.log(dayOfWeek.length);
 
 원소 삽입- 마지막 위치(push)
 numbers.push(11);
-* 앞부분에 원소를 추가하고 싶다면 for문에서 순회하며 위치를 바꾸고, 새로운 값을 첫번째 위치에 할당한다
+*앞부분에 원소를 추가하고 싶다면 for문에서 순회하며 위치를 바꾸고, 새로운 값을 첫번째 위치에 할당한다
 
 Array.unshift : 삽입할 값들을 인자로 넘겨준다
 pop : 배열 뒷부분의 값을 삭제
@@ -62,7 +62,7 @@ splice : 특정 원소 삭제/삽입
 2차원/다차원 배열 : 행, 열을 사용
 ex)averageTemp [0] [4] = 81;
 
-## 메소드
+### 메소드
 contact : 각 배열을 루프로 반복해서 원소를 하나하나 결과 배열에 담음
     ex)var Numbers = negativeNumbers.contact (zero. positiveNumbers);
     -> zero가 negative에 병합, 그 뒤에 positive에 병합
