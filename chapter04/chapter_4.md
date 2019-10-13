@@ -168,7 +168,7 @@ this.insert = function(position, element){
 
 ```
 
-##원소삭제
+## 원소삭제
 ```
 this.removeAt = function(position){
     if (position > -1 && position < length){
