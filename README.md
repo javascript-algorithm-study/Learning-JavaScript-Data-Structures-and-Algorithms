@@ -58,3 +58,10 @@
 - [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_04/chapter_04.md)
 - [xiah](https://github.com/noel88/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter4_xiah/chapter4/Queue.md)
 - [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch4/ch4.md)
+- [yongseon](https://github.com/yongseon01/Learning-JavaScript-Data-Structures-and-Algorithms/blob/yongseon/chapter04-queue/Queue.md)
+- [yoonhee1](https://github.com/yoon-hee1/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter_3yoonhee/chapter03/chapter_3.md)
+
+### 4주차(19.10.7 ~ 19.10.14) 연결리스트
+
+- [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_05/chapter_05.md)
+- [yoonhee1](https://github.com/yoon-hee1/Learning-JavaScript-Data-Structures-and-Algorithms/blob/chapter_4yoonhee/chapter04/chapter_4.md)
