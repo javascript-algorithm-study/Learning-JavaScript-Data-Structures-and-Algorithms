@@ -68,3 +68,4 @@
 ### 5주차(19.10.14 ~ 19.10.21) 집합
 
 - [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch6/ch6.md)
+- [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_06/chapter_06.md)
