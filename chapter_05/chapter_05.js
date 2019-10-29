@@ -31,7 +31,7 @@ const LinkedList = function () {
     };
 
     this.removeAt = function (position) {
-        if (position > -1 || position < length) {
+        if (position > -1 && position < length) {
             let current = head;
             let previous;
             let index = 0;
