@@ -70,3 +70,5 @@
 - [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_06/chapter_06.md)
 - [shldhee](https://github.com/shldhee/Learning-JavaScript-Data-Structures-and-Algorithms/blob/shldhee/ch6/ch6.md)
 
+### 7주차(19.10.31 ~ 19.11.7) 딕셔너리와 해시
+- [zxczoxc125](https://github.com/zxczoxc125/Learning-JavaScript-Data-Structures-and-Algorithms/blob/zxczoxc125/chapter_07/chapter_07.md)
