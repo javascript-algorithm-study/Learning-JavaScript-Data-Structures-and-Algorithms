@@ -2,179 +2,314 @@
 
 ## ch7.딕셔너리와 해서
 
-- 집합은 정렬되지 않은 컬렉션으로 원소는 반복되지 않는다.(중복된 원소가 없다.)
+- 유일한 값을 저장하기 위한 자료구조이며 `키, 값` 형태로 저장
 
-### 집합 만들기
+### 딕셔너리
 
-- `ES6` SET 모방
+- ES6에 `Map`
+- `SET`은 `[키, 키]`
+- `MAP`은 `[키, 값]`
 
 ```javascript
-function Set() {
+function Dictionary() {
   var items = {};
 }
 ```
 
-#### `has()`
+#### has와 set 메소드
 
 ```javascript
-this.has = function(value) {
-  return value in items;
+this.has = function(key) {
+  return key in items;
 };
 
-// good
-this.has = function(value) {
-  return items.hasOwnProperty(value);
+this.set = function(key, value) {
+  items[key] = value;
 };
 ```
 
-#### `add`
+#### remove 메소드
 
 ```javascript
-this.add = function(value) {
-  if (!this.has(value)) {
-    items[value] = value;
+this.remove = function(key) {
+  if (this.has(key)) {
+    delete items[key];
     return true;
   }
   return false;
 };
 ```
 
-- 키와 값이 동일한 이유는 나중에 찾기 편하게!!
-
-#### `remove`, `clear`
+#### get과 values 메소드
 
 ```javascript
-this.remove = function(value) {
-  if (this.has(value)) {
-    delete items[value];
-    return true;
-  }
-
-  return false;
+this.get = function(key) {
+  return this.has(key) ? items[key] : undefined;
 };
 
+this.values = function() {
+  var values = [];
+  for (var k in items) {
+    if (this.has(k)) {
+      values.push(items[k]);
+    }
+  }
+  return values;
+};
+```
+
+#### clear, size, keys, getItems 메소드
+
+```javascript
 this.clear = function(value) {
   items = {};
 };
-```
 
-#### `size`
+this.size = function() {
+  return Object.keys(items).length;
+};
 
-- 3가지 방법
-- `LinkedList`처럼 `length`변수로 `add,remove` 사용시 변경
-- 자바스크립트 내장함수 이용
-
-  ```javascript
-  this.size = function() {
-    return Object.keys(items).length;
-  };
-  ```
-
-- 모든 브라우저에서 사용 가능
-
-  ```javascript
-  this.sizeLegacy = function() {
-    var count = 0;
-    for (var prop in items) {
-      if (items.hasOwnProperty(prop)) {
-        ++count;
-      }
-    }
-    return count;
-  };
-  ```
-
-#### `values`
-
-```javascript
-this.values = functino() {
-  return Object.keys(items);
-}
-
-// old browser
-this.valueLegacy = function() {
+this.keys = function() {
   var keys = [];
-  for (var key in items) {
-    keys.push(key);
+  for (var k in items) {
+    if (this.has(k)) {
+      keys.push(k);
+    }
   }
   return keys;
+};
+
+this.getItems = function() {
+  return items;
+};
+```
+
+### 해시 테이블
+
+- 해싱(hasing)은 자료구조에서 특정 값을 가장 신속하게 찾는 방법
+
+#### 해시 테이블 만들기
+
+``` javascript
+function HashTable() {
+  var table = [];
+
+  var loseloseHasCode = function(key) {
+    var hash = 0;
+    for (var i = 0; i < key.length; i++) {
+      hash += key.charCodeAt(i);
+    }
+    return hash % 37;
+  };
+
+  this.put = function (key, value) {
+    var position = loseloseHashCOde(key);
+    console.log(position + ' - ' + key);
+    table[position] = value;
+  }
+
+  this.get = function (key) {
+    return table[loseloseHashCode(key)];
+  };
+
+  this.remove = function (key) {
+    return table[loseloseHasCode(key)] = undefined;
+  }
 }
 ```
 
-### 집합 연산
+### 해시 테이블과 해시 집합 비교
 
-- 합집합 : 두 집합 중 어느 한쪽이라도 포함된 원소로 구성된 집함
-- 교집합 : 두 집합 모두 포함되어 있는 원소로 구성된 집합
-- 차집합 : 첫 번째 집합에는 있지만 두 번째 집합에는 없는 원소로 구성된 집합
-- 부분집합 : 어떤 집합이 다른 집합의 일부인지 확인
+- 해시 테이블(hash map), 해시 집합(hash set)
+- 키-값 쌍이 아닌, 값만 넣는 해시 집합!
 
-#### 합집합
+#### 해시 테이블 간 충돌 해결
 
-```javascript
-this.union = function(otherSet) {
-  var unionSet = new Set(); // 리턴될 합집합
+``` javascript
+var hash = new HashTable();
+hash.put('Tyrion', 'tyrion@email.com');
+hash.put('Aaron', 'Aaron@email.com');
+hash.put('Jonathan', 'jonathan@gmail.com');
+hash.put('Jamie', 'jamie@gmail.com');
+hash.put('Sue', 'sue@gmail.com');
 
-  var values = this.value(); // 현재 집합
-  for (var i = 0; i < values.length; i++) {
-    unionSet.add(values[i]);
-  }
+hash.print();
 
-  values = otherSet.values(); // 다른 집합
-  for (var i = 0; i < values.length; i++) {
-    unionSet.add(values[i]);
-  }
-
-  return unionSet;
-};
+16 - Tyrion
+16 - Aaron
+5 - Jonathan
+5 - Jamie
+5 - Sue
+5: sue@gmail.com
+16: Aaron@email.com
 ```
 
-### 교집합
+- 해쉬 함수 값이 같은 경우 마지막것만 저장된다.
+- 말도 안되니깐 체이닝, 선형탐사, 이중 해싱 3가지 방법으로 처리해보자.
+- 여기선 이중 해싱은 안한다.
 
-```javascript
-this.intersection = function(otherSet) {
-  var intersectionSet = new Set();
+### 체이닝
 
-  var values = this.values();
-  for (var i = 0; i < values.length; i++) {
-    if (otherSet.has(values[i])) {
-      intersectionSet.add(values[i]);
+- 같은 해시값이 있으면 `LinkList`연결리스트를 사용
+
+``` javascript
+var ValuePair = function(key, value) {
+  this.key = key;
+  this.value = value;
+
+  this.toString = function() {
+    return `[${this.key} - ${this.value}]`
+  }
+}
+```
+
+#### put 메소드
+
+``` javascript
+  this.put = function (key, value) {
+    var position = loseloseHasCode(key);
+
+    // 원소가 없으면 링크드리스트 만듬
+    if (table[position] == undefined) {
+      table[position] = new LinkedList();
+    }
+    // 원소가 있으면 링크드리스트의 append를 사용
+    table[position].append(new ValuePair(key, value));
+  }
+```
+
+#### get 메소드
+
+``` javascript
+this.get = function(key) {
+  var position = loseloseHashCode(key);
+
+  if(table[position] !== undefined) {
+    var current = table[position].getHead();
+
+    while(current.next) {
+      if(current.element.key === key) {
+        return current.element.value;
+      }
+      current = current.next;
+    }
+
+    if (current.element.key === key) {
+      return current.element.value;
     }
   }
-
-  return intersectionSet;
-};
+  return undefined;
+}
 ```
 
-### 차집합
+#### remove 메소드
 
-```javascript
-this.difference = function(otherSet) {
-  var differenceSet = new Set();
+``` javascript
+this.remove = function(key) {
+  var position = loseloseHashCOde(key);
 
-  var values = this.values();
-  for (var i = 0; i < values.length; i++) {
-    if (!otherSet.has(values[i])) {
-      differentSet.add(values[i]);
+  if (table[position] !== undefined) {
+    var current = table[position].getHead();
+    while(current.next) {
+      if (current.element.key === key) {
+        table[position].remove(current.element);
+        if (table[position].isEmpty()) {
+          table[position] = undefined;
+        }
+        return true;
+      }
+      current = current.next;
+    }
+
+    if(current.element.key === key) {
+      table[position].remove(current.element);
+      if (table[position].isEmpty()) {
+        table[position] = undefined;
+      }
+      return true;
     }
   }
-  return differenceSet;
-};
+  return false;
+}
 ```
 
-### 부분집합
+### 선형 탐색법
 
-```javascript
-this.subset = function(otherSet) {
-  if (this.size() > otherSet.size()) {
-    return false;
+- 새 원소 추가 시 인덱스가 이미 점유된 상태라면 인덱스 +1를 찾아보고, 여기도 점유되어있으면 +2를 찾는다.
+
+#### put메소드
+
+``` javascript
+this.put = function(key, value) {
+  var position = loseloseHashCode(key);
+
+  if (table[position] == undefined) {
+    table[position] = new ValuePair(key.value);
   } else {
-    var values = this.values();
-    for (var i = 0; i < values.length; i++) {
-      if (!otherSet.has(values[i])) {
-        return false;
+    var index = ++position;
+    // 해당 index가 내용이 있으면 다음 인덱스 탐색
+    while (table[index] != undefined) { 
+      index++;
+    }
+    table[index] = new ValuePair(key, value);
+  }
+};
+```
+
+#### get 메소드
+
+``` javascript
+this.get = function(key) {
+  var position = loseloseHashCode(key);
+
+  if(table[position] !== undefined) {
+    if (table[position].key === key) {
+      return table[position].value;
+    } else {
+      var index = ++position;
+      while (table[index] === undefined || table[index].key !== key) {
+        index++;
+      }
+      if (table[index].key === key) {
+        return table[index].value;
       }
     }
-    return true;
   }
-};
+  return undefined;
+}
+```
+
+#### remove 메소드
+
+``` javascript
+this.get = function(key) {
+  var position = loseloseHashCode(key);
+
+  if(table[position] !== undefined) {
+    if (table[position].key === key) {
+      table[index] = undefined;
+    } else {
+      var index = ++position;
+      while (table[index] === undefined || table[index].key !== key) {
+        index++;
+      }
+      if (table[index].key === key) {
+        table[index] = undefined;
+      }
+    }
+  }
+  return undefined;
+}
+```
+
+### 해시 함수 개선
+
+``` javascript
+var djb2hashCode = function (key) {
+  var hash = 5381;
+  for (var i = 0; i< key.length; i++)) {
+    hash = hash * 33 + key.charCodeAt(i);
+  }
+  return hash % 1013;
+}
 ```

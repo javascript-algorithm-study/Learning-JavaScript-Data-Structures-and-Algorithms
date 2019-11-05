@@ -1,149 +1,126 @@
-function Set() {
-  var items = {};
+// function Dictionary() {
+//   var items = {};
 
-  this.has = function(value) {
-    return items.hasOwnProperty(value);
-  };
+//   this.has = function (key) {
+//     return key in items;
+//   };
 
-  this.add = function(value) {
-    if (!this.has(value)) {
-      items[value] = value;
-      return true;
+//   this.set = function (key, value) {
+//     items[key] = value;
+//   };
+
+//   this.remove = function (key) {
+//     if (this.has(key)) {
+//       delete items[key];
+//       return true;
+//     }
+//     return false;
+//   };
+
+//   this.get = function (key) {
+//     return this.has(key) ? items[key] : undefined;
+//   };
+
+//   this.values = function () {
+//     var values = [];
+//     for (var k in items) {
+//       if (this.has(k)) {
+//         values.push(items[k]);
+//       }
+//     }
+//     return values;
+//   };
+
+//   this.clear = function (value) {
+//     items = {};
+//   };
+
+//   this.size = function () {
+//     return Object.keys(items).length;
+//   };
+
+//   this.keys = function () {
+//     var keys = [];
+//     for (var k in items) {
+//       if (this.has(k)) {
+//         keys.push(k);
+//       }
+//     }
+//     return keys;
+//   };
+
+//   this.getItems = function () {
+//     return items;
+//   };
+// }
+
+// var dictionary = new Dictionary();
+// dictionary.set("Gandalf1", "gandalf1@gmail.com");
+// dictionary.set("Gandalf2", "gandalf2@gmail.com");
+// dictionary.set("Gandalf3", "gandalf3@gmail.com");
+
+// console.log(dictionary.has("Gandalf1"));
+
+// console.log(dictionary.keys());
+// console.log(dictionary.values());
+// console.log(dictionary.get('Gandalf2'));
+
+// console.log(dictionary.remove('Gandalf1'));
+
+// console.log(dictionary.keys());
+// console.log(dictionary.values());
+// console.log(typeof dictionary.getItems());
+
+function HashTable() {
+  var table = [];
+
+  var loseloseHasCode = function (key) {
+    var hash = 0;
+    for (var i = 0; i < key.length; i++) {
+      hash += key.charCodeAt(i);
     }
-    return false;
+    return hash % 37;
   };
 
-  this.remove = function(value) {
-    if (this.has(value)) {
-      delete items[value];
-      return true;
-    }
+  this.put = function (key, value) {
+    var position = loseloseHasCode(key);
+    console.log(position + ' - ' + key);
+    table[position] = value;
+  }
 
-    return false;
+  this.get = function (key) {
+    return table[loseloseHasCode(key)];
   };
 
-  this.clear = function(value) {
-    items = {};
-  };
+  this.remove = function (key) {
+    return table[loseloseHasCode(key)] = undefined;
+  }
 
-  this.size = function() {
-    return Object.keys(items).length;
-  };
-
-  this.values = function() {
-    return Object.keys(items);
-  };
-
-  this.union = function(otherSet) {
-    var unionSet = new Set(); // 리턴될 합집합
-
-    var values = this.values(); // 현재 집합
-    for (var i = 0; i < values.length; i++) {
-      unionSet.add(values[i]);
-    }
-
-    values = otherSet.values(); // 다른 집합
-    for (var i = 0; i < values.length; i++) {
-      unionSet.add(values[i]);
-    }
-
-    return unionSet;
-  };
-
-  this.intersection = function(otherSet) {
-    var intersectionSet = new Set();
-
-    var values = this.values();
-    for (var i = 0; i < values.length; i++) {
-      if (otherSet.has(values[i])) {
-        intersectionSet.add(values[i]);
+  this.print = function () {
+    for (var i = 0; i < table.length; i++) {
+      if (table[i] !== undefined) {
+        console.log(i + ": " + table[i]);
       }
     }
-
-    return intersectionSet;
-  };
-
-  this.difference = function(otherSet) {
-    var differenceSet = new Set();
-
-    var values = this.values();
-    for (var i = 0; i < values.length; i++) {
-      if (!otherSet.has(values[i])) {
-        differenceSet.add(values[i]);
-      }
-    }
-    return differenceSet;
-  };
-
-  this.subset = function(otherSet) {
-    if (this.size() > otherSet.size()) {
-      return false;
-    } else {
-      var values = this.values();
-      for (var i = 0; i < values.length; i++) {
-        if (!otherSet.has(values[i])) {
-          return false;
-        }
-      }
-      return true;
-    }
-  };
+  }
 }
 
-// var set = new Set();
+// var hash = new HashTable();
+// hash.put('Gandalf', 'gandalf@gmail.com');
+// hash.put('John', 'john@gmail.com');
+// hash.put('Tyrion', 'tyrion@gmail.com');
 
-// set.add(1);
-// console.log(set.values());
-// console.log(set.has(1));
-// console.log(set.size());
+// console.log(hash.get('Gandalf'));
+// console.log(hash.get('Johna'));
 
-// set.add(2);
-// console.log(set.values());
-// console.log(set.has(2));
-// console.log(set.size());
+// hash.remove('Gandalf');
+// console.log(hash.get('Gandalf'));
 
-// set.remove(1);
-// console.log(set.values());
+var hash = new HashTable();
+hash.put('Tyrion', 'tyrion@email.com');
+hash.put('Aaron', 'Aaron@email.com');
+hash.put('Jonathan', 'jonathan@gmail.com');
+hash.put('Jamie', 'jamie@gmail.com');
+hash.put('Sue', 'sue@gmail.com');
 
-// set.remove(2);
-// console.log(set.values());
-
-// var setA = new Set();
-// setA.add(1);
-// setA.add(2);
-// setA.add(3);
-
-// var setB = new Set();
-// setB.add(3);
-// setB.add(4);
-// setB.add(5);
-// setB.add(6);
-
-// var unionAB = setA.union(setB);
-// console.log(unionAB.values());
-
-var setA = new Set();
-setA.add(1);
-setA.add(2);
-
-var setB = new Set();
-setB.add(1);
-setB.add(2);
-setB.add(3);
-
-var setC = new Set();
-setC.add(2);
-setC.add(3);
-setC.add(4);
-
-var intersectionAB = setA.intersection(setB);
-console.log(intersectionAB.values());
-
-var differenceAB = setA.difference(setB);
-console.log(differenceAB.values());
-
-var subsetAB = setA.subset(setB);
-console.log(subsetAB);
-
-var subsetAC = setA.subset(setC);
-console.log(subsetAC);
+hash.print();
