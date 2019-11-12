@@ -1,5 +1,5 @@
 function solution(a, b) {
-    let answer = '';
+    let answer;
     const days = ['FRI','SAT','SUN','MON','TUE','WED','THU'];
     const dates = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let totalRemain = 0;
