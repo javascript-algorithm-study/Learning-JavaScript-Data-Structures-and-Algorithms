@@ -2,7 +2,7 @@
  * Queue
  * @constructor
  */
-const Queue = function () {
+module.exports.Queue = function () {
     let items = [];
 
     this.dequeue = function () {
@@ -84,10 +84,10 @@ const PriorityQueue = function () {
 
 let priorityQueue = new PriorityQueue();
 
-priorityQueue.enqueue('Jhon', 2);
-priorityQueue.enqueue('Jack', 1);
-priorityQueue.enqueue('Camila', 1);
-priorityQueue.print();
+// priorityQueue.enqueue('Jhon', 2);
+// priorityQueue.enqueue('Jack', 1);
+// priorityQueue.enqueue('Camila', 1);
+// priorityQueue.print();
 
 /**
  * Linear Queue
@@ -95,22 +95,22 @@ priorityQueue.print();
  * @param num
  * @returns {Queue}
  */
-const hotPotato = function (names, num) {
-    let queue = new Queue();
-    for (let i = 0; i < names.length; i++) {
-        queue.enqueue(names[i]);
-    }
-    while (queue.size() > 1) {
-        let loser = '';
-        for (let i = 0; i < num; i++) {
-            queue.enqueue(queue.dequeue());
-        }
-        loser = queue.dequeue();
-        console.log('this loser :: ', loser);
-    }
-    return queue.dequeue();
-};
+// const hotPotato = function (names, num) {
+//     let queue = new Queue();
+//     for (let i = 0; i < names.length; i++) {
+//         queue.enqueue(names[i]);
+//     }
+//     while (queue.size() > 1) {
+//         let loser = '';
+//         for (let i = 0; i < num; i++) {
+//             queue.enqueue(queue.dequeue());
+//         }
+//         loser = queue.dequeue();
+//         console.log('this loser :: ', loser);
+//     }
+//     return queue.dequeue();
+// };
 
 const names = ['Jhon', 'Jack', 'Camilia', 'Ingrid', 'Carl'];
-const winner = hotPotato(names, 7);
-console.log('[winner] :: ', winner);
+// const winner = hotPotato(names, 7);
+// console.log('[winner] :: ', winner);

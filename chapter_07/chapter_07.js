@@ -117,7 +117,7 @@ const LinkedList = function () {
  * Dictionary
  * @constructor
  */
-const Dictionary = function () {
+module.exports.Dictionary = function () {
     let items = {};
 
     this.set = function (key, value) {
@@ -239,31 +239,31 @@ const HashTableSeparateChaining = function () {
 
 const hashTableSeparateChaining = new HashTableSeparateChaining();
 
-hashTableSeparateChaining.put('Gandalf', 'gandalf@email.com');
-hashTableSeparateChaining.put('John', 'johnsnow@email.com');
-hashTableSeparateChaining.put('Tyrion', 'tyrion@email.com');
-hashTableSeparateChaining.put('Aaron', 'aaron@email.com111');
-hashTableSeparateChaining.put('Donnie', 'donnie@email.com');
-hashTableSeparateChaining.put('Ana', 'ana@email.com');
-hashTableSeparateChaining.put('Jonathan', 'jonathan@email.com');
-hashTableSeparateChaining.put('Jamie', 'jamie@email.com');
-hashTableSeparateChaining.put('Sue', 'sue@email.com');
-hashTableSeparateChaining.put('Mindy', 'mindy@email.com');
-hashTableSeparateChaining.put('Paul', 'paul@email.com');
-hashTableSeparateChaining.put('Nathan', 'nathan@email.com');
+// hashTableSeparateChaining.put('Gandalf', 'gandalf@email.com');
+// hashTableSeparateChaining.put('John', 'johnsnow@email.com');
+// hashTableSeparateChaining.put('Tyrion', 'tyrion@email.com');
+// hashTableSeparateChaining.put('Aaron', 'aaron@email.com111');
+// hashTableSeparateChaining.put('Donnie', 'donnie@email.com');
+// hashTableSeparateChaining.put('Ana', 'ana@email.com');
+// hashTableSeparateChaining.put('Jonathan', 'jonathan@email.com');
+// hashTableSeparateChaining.put('Jamie', 'jamie@email.com');
+// hashTableSeparateChaining.put('Sue', 'sue@email.com');
+// hashTableSeparateChaining.put('Mindy', 'mindy@email.com');
+// hashTableSeparateChaining.put('Paul', 'paul@email.com');
+// hashTableSeparateChaining.put('Nathan', 'nathan@email.com');
 
 
-console.log(hashTableSeparateChaining.get('Aaron'))
-
-
-console.log(hashTableSeparateChaining.remove('Sue'));
-console.log(hashTableSeparateChaining.get('Sue'));
-
-console.log(hashTableSeparateChaining.remove('Sue'));
-
-console.log(hashTableSeparateChaining.remove('Jamie'));
-
-console.log(hashTableSeparateChaining.remove('Donnie'));
+// console.log(hashTableSeparateChaining.get('Aaron'))
+//
+//
+// console.log(hashTableSeparateChaining.remove('Sue'));
+// console.log(hashTableSeparateChaining.get('Sue'));
+//
+// console.log(hashTableSeparateChaining.remove('Sue'));
+//
+// console.log(hashTableSeparateChaining.remove('Jamie'));
+//
+// console.log(hashTableSeparateChaining.remove('Donnie'));
 
 
 
